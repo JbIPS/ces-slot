@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=960px, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slot Machine</title>
+  <style>
+    .machine {
+      height: 1em;
+      overflow: hidden;
+      display: inline-block;
+      text-align: left;
+      width: 100px;
+    }
+  </style>
+  <link rel="stylesheet" href="./jquery.slotmachine.min.css">
+</head>
+
+<body>
+  <div class="slot1"></div>
+  <div class="slot2"></div>
+  <div id="machine1" class="machine">
+    <div>Patate</div>
+    <div>Roue de hamster</div>
+    <div>Brosse à dent</div>
+  </div>
+  <div id="machine2" class="machine">
+    <div>Connecté</div>
+    <div>En VR</div>
+    <div>AI Augmented</div>
+  </div>
+  <button id="randomizeButton">GO</button>
+  <script src="./slotmachine.min.js"></script>
+  <script>
+    function pick(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+    const bw1 = ["patate", "roue de hamster"];
+    const bw2 = ["connecté", "en VR"];
+
+    const btn = document.querySelector('#randomizeButton');
+    const el1 = document.querySelector('#machine1');
+    const el2 = document.querySelector('#machine2');
+    const machine1 = new SlotMachine(el1, {});
+    const machine2 = new SlotMachine(el2, {});
+
+    function onComplete(active) {
+      //results[this.element.id].innerText = `Index: ${this.active}`;
+    }
+
+    btn.addEventListener('click', () => {
+      machine1.shuffle(5, onComplete);
+      setTimeout(() => machine2.shuffle(5, onComplete), 500);
+    });
+  </script>
+</body>
+
+</html>
