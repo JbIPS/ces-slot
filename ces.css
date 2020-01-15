@@ -1,3 +1,24 @@
+.line {
+  width: 10px;
+  height: 1px;
+  background:black;
+  position: absolute;
+  top: 20px;
+}
+
+.line.left {
+  left: 3px;
+}
+
+.line.right {
+  right: 3px;
+}
+
+.machineContainer {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+}
 
 .machine {
   height: 2em;
@@ -5,12 +26,13 @@
   display: inline-block;
   text-align: left;
   width: 20ch;
-  font-family: "Comfortaa";
   background: white;
   text-align: center;
   vertical-align: middle;
   line-height: 2em;
-  border-radius: 7px
+  border-radius: 7px;
+  border: double;
+  color: black;
 }
 
 .slotMachineContainer > div {
@@ -19,5 +41,36 @@
 
 body {
   background: black;
+  font-family: "Comfortaa";
+  color: white;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  opacity: 0;
+}
+
+h2.visible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+a, a:visited {
+  color: white;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+#game {
+  width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  border: solid 5px white
 }
   

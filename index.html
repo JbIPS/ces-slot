@@ -11,52 +11,64 @@
 </head>
 
 <body>
-  <div class="slot1"></div>
-  <div class="slot2"></div>
-  <div id="machine1" class="machine">
-    <div>Patate</div>
-    <div>Roue de hamster</div>
-    <div>Brosse à dent</div>
-    <div>Boule quiès</div>
-    <div>Sommeil</div>
-    <div>Montre</div>
-    <div>Sonnette</div>
-    <div>Machine à café</div>
-    <div>Livraison</div>
-    <div>Toillettes portatives</div>
-    <div>Cure-dent</div>
+  <h1>Trouvez votre idée de startup pour le CES 2021 !</h1>
+  <div id="game">
+  <div class="machineContainer">
+    <div class="line left"></div>
+    <div id="machine1" class="machine">
+      <div>Patate</div>
+      <div>Roue de hamster</div>
+      <div>Brosse à dent</div>
+      <div>Boule quiès</div>
+      <div>Sommeil</div>
+      <div>Montre</div>
+      <div>Sonnette</div>
+      <div>Machine à café</div>
+      <div>Livraison</div>
+      <div>Toillettes portatives</div>
+      <div>Cure-dent</div>
+    </div>
+    <div class="line right"></div>
   </div>
-  <div id="machine2" class="machine">
-    <div>connectée</div>
-    <div>en VR</div>
-    <div>AI Augmented</div>
-    <div>8K</div>
-    <div>en 6G</div>
-    <div>uberisé</div>
-    <div>avec des drones</div> 
-    <div>à l'hydrogène</div>   
-    <div>en réalité augmentée</div>  
-  </div>
+  <div class="machineContainer">
+    <div class="line left"></div>
+    <div id="machine2" class="machine">
+      <div>connectée</div>
+      <div>en VR</div>
+      <div>AI Augmented</div>
+      <div>8K</div>
+      <div>en 6G</div>
+      <div>uberisé</div>
+      <div>avec des drones</div>
+      <div>à l'hydrogène</div>
+      <div>en réalité augmentée</div>
+    </div>
+    <div class="line right"></div>
+  </div class="machineContainer">
   <button id="randomizeButton">GO</button>
+</div>
+<h2 id="skill">Maintenez vous avez une idée ! Et si vous avez besoin de compétences, il y a toujours <a href="https://cameo.fr">Cameo</a>.</h2>
+
   <script src="./slotmachine.min.js"></script>
   <script>
     function pick(array) {
       return array[Math.floor(Math.random() * array.length)];
     }
-
-    const btn = document.querySelector('#randomizeButton');
-    const el1 = document.querySelector('#machine1');
-    const el2 = document.querySelector('#machine2');
+    const skill = document.getElementById('skill');
+    const btn = document.getElementById('randomizeButton');
+    const el1 = document.getElementById('machine1');
+    const el2 = document.getElementById('machine2');
     const machine1 = new SlotMachine(el1, {});
     const machine2 = new SlotMachine(el2, {});
 
     function onComplete(active) {
-      //results[this.element.id].innerText = `Index: ${this.active}`;
+      skill.classList.add("visible");
     }
 
     btn.addEventListener('click', () => {
-      machine1.shuffle(5, onComplete);
-      setTimeout(() => machine2.shuffle(5, onComplete), 500);
+      skill.classList.remove("visible");
+      machine1.shuffle(5);
+      setTimeout(() => machine2.shuffle(5, onComplete), 100);
     });
   </script>
 </body>
