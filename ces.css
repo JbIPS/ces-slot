@@ -1,0 +1,22 @@
+
+.machine {
+  height: 2em;
+  overflow: hidden;
+  display: inline-block;
+  text-align: left;
+  width: 20ch;
+  font-family: "Comfortaa";
+  background: white;
+  text-align: center;
+  vertical-align: middle;
+  line-break: 2em;
+}
+
+.slotMachineContainer > div {
+  height: 2em;
+}
+
+body {
+  background: black;
+}
+  
